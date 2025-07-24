@@ -1,0 +1,6 @@
+@AirJourney_Blog.PL_HostAddress = http://localhost:5062
+
+GET {{AirJourney_Blog.PL_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

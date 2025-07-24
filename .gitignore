@@ -1,0 +1,24 @@
+# Build folders
+**/bin/
+**/obj/
+
+# IDE settings
+.vs/
+.vscode/
+
+# User secrets / configuration
+.env
+config.json
+
+# Ignore appsettings in the PL project
+AirJourney-Blog.PL/appsettings.json
+AirJourney-Blog.PL/appsettings.Development.json
+
+# NuGet artifacts
+*.nuget.cache
+*.assets.json
+
+# OS files
+Thumbs.db
+.DS_Store
+

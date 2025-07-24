@@ -1,0 +1,55 @@
+﻿<!--<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>AirJourney_Blog.Service</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="9.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AirJourney-Blog.BLL\AirJourney-Blog.BLL.csproj" />
+  </ItemGroup>
+
+</Project>
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<!-- Add these two lines exactly as shown -->
+		<RootNamespace>AirJourney_Blog.Service</RootNamespace>
+		<AssemblyName>AirJourney-Blog.Service</AssemblyName>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<!-- Add this ItemGroup for resource files -->
+	<ItemGroup>
+		<EmbeddedResource Update="Services\Resources\*.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>%(Filename).Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="14.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+		<!-- Add this essential package -->
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.2" />
+		<PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="9.0.7" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\AirJourney-Blog.BLL\AirJourney-Blog.BLL.csproj" />
+	</ItemGroup>
+
+</Project>
