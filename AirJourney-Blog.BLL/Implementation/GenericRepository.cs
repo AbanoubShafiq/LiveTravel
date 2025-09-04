@@ -83,10 +83,15 @@ namespace AirJourney_Blog.BLL.Implementation
                 TotalPages = totalPages
             };
         }
+        public async Task<List<T>> GetFilteredAsync(Expression<Func<T, bool>> criteria = null)
+        {
+            IQueryable<T> query = dbset.AsQueryable();
 
+            if (criteria != null)
+                query = query.Where(criteria);
 
-
-
+            return await query.ToListAsync();
+        }
 
         public async Task<T> GetByIdAsync(int id)
         {
@@ -111,6 +116,7 @@ namespace AirJourney_Blog.BLL.Implementation
 
             return await query.SingleOrDefaultAsync(criteria);
         }
+
 
     }
 }

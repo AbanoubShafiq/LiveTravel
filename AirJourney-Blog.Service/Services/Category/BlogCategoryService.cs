@@ -153,16 +153,19 @@ namespace AirJourney_Blog.Service.Services.BlogCategory
         public async Task<List<CategoryDropdownDto>> GetCategoryDropdownAsync ()
         {
             var categories = await unitOfWork.GenericRepository<DAL.Models.BlogCategory>()
-                .GetAllAsync(criteria: x => x.IsVisible);
+                .GetFilteredAsync(criteria: x =>
+                    x.IsVisible &&
+                    x.Blogs.Any(blog => blog.IsVisible)
+                );
 
-            return mapper.Map<List<CategoryDropdownDto>>(categories.Items);
+            return mapper.Map<List<CategoryDropdownDto>>(categories);
         }
         public async Task<List<AdminCategoryDropdownDto>> GetAdminCategoryDropdownAsync()
         {
             var categories = await unitOfWork.GenericRepository<DAL.Models.BlogCategory>()
-                .GetAllAsync(); 
+                .GetFilteredAsync(); 
 
-            return mapper.Map<List<AdminCategoryDropdownDto>>(categories.Items);
+            return mapper.Map<List<AdminCategoryDropdownDto>>(categories);
         }
         public async Task<CategoryDetailDto> GetCategoryByIDAsync(int id)
         {

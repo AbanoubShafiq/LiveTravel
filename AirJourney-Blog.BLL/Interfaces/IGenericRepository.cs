@@ -25,5 +25,7 @@ namespace AirJourney_Blog.BLL.Interfaces
         Task<int> CountAsync ();
         public Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> criteria);
         public Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate);
+        public Task<List<TEntity>> GetFilteredAsync(Expression<Func<TEntity, bool>> criteria = null);
+
     }
 }

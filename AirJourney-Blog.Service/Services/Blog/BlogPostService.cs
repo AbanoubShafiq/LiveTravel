@@ -177,13 +177,13 @@ namespace AirJourney_Blog.Service.Services.BlogPost
                 throw new ArgumentException("No Category with That Id");
 
 
-            var relatedBlogs = await unitOfWork.GenericRepository<DAL.Models.BlogPost>().GetAllAsync(
+            var relatedBlogs = await unitOfWork.GenericRepository<DAL.Models.BlogPost>().GetFilteredAsync(
                 criteria: x => x.BlogCategoryId == categoryId);
 
-            if (relatedBlogs.Items.Count == 0)
+            if (relatedBlogs.Count == 0)
                 return;
 
-            foreach(var blog in  relatedBlogs.Items)
+            foreach(var blog in  relatedBlogs)
             { 
                 blog.IsVisible = false;
             };
